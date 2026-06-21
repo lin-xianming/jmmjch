@@ -131,7 +131,7 @@
       assetMultiSelectManager.clear();
       return;
     }
-    await goto(Route.albums());
+    await goto(previousRoute);
   };
 
   const refreshAlbum = async () => {
@@ -280,7 +280,7 @@
 
   const onAlbumDelete = async ({ id }: AlbumResponseDto) => {
     if (id === album.id) {
-      await goto(Route.albums());
+      await goto(previousRoute);
       viewMode = AlbumPageViewMode.VIEW;
     }
   };
