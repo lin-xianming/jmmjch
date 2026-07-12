@@ -63,7 +63,7 @@
 
 <div class="mt-4">
   {#if !isCollapsed}
-    <div class="grid grid-auto-fill-56 gap-y-4" transition:slide={{ duration: 300 }}>
+    <div class="grid grid-auto-fill-56 gap-y-0" transition:slide={{ duration: 300 }}>
       {#each albums as album, index (album.id)}
         <a
           href={Route.viewAlbum(album) + (previousRoute ? `?previousRoute=${encodeURIComponent(previousRoute)}` : '')}
