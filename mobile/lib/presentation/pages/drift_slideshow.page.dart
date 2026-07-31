@@ -439,6 +439,7 @@ class _DriftSlideshowPageState extends ConsumerState<DriftSlideshowPage> with Si
               ),
             ),
           ),
+          /*
           if (_crossfadeFromIndex != null && _crossfadeToIndex != null)
             Positioned.fill(
               child: IgnorePointer(
@@ -458,6 +459,7 @@ class _DriftSlideshowPageState extends ConsumerState<DriftSlideshowPage> with Si
                 ),
               ),
             ),
+          */
         ],
       ),
     );
