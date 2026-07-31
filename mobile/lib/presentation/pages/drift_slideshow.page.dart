@@ -35,7 +35,7 @@ class DriftSlideshowPage extends ConsumerStatefulWidget {
 }
 
 class _DriftSlideshowPageState extends ConsumerState<DriftSlideshowPage> with SingleTickerProviderStateMixin {
-  static const double _kenBurnsZoom = 0.1;
+  static const double _kenBurnsZoom = 0.0;
 
   late SlideshowConfig _config;
   late final PageController _pageController;
