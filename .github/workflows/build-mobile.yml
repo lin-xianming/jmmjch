@@ -96,7 +96,8 @@ jobs:
       - name: Build Android App Bundle
         working-directory: ./mobile
         run: |
-          flutter build apk --release --target-platform android-arm64
+          flutter build apk --release --flavor app1 --target-platform android-arm64
+          flutter build apk --release --flavor app2 --target-platform android-arm64
 
       - name: Publish Android Artifact
         id: upload-apk
