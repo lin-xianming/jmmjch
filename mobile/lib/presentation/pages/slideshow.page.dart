@@ -61,8 +61,8 @@ class _SlideshowPageState extends ConsumerState<SlideshowPage> with SingleTicker
     final asset = ref.read(assetViewerProvider).currentAsset;
     _index = asset == null ? 0 : widget.timeline.getIndex(asset.heroTag) ?? 0;
     _pageController = PageController(initialPage: _index);
-    _crossfadeController = AnimationController(vsync: this, duration: Durations.extralong2);
-    _crossfadeOpacity = Tween<double>(begin: 1.0, end: 0.0).animate(_crossfadeController);
+    _crossfadeController = AnimationController(vsync: this, duration: Durations.short1);
+    _crossfadeOpacity = Tween<double>(begin: 1.0, end: 1.0).animate(_crossfadeController);
     _stopwatch = Stopwatch();
     _createTimer();
     _updateNextIndex();
@@ -434,7 +434,6 @@ class _SlideshowPageState extends ConsumerState<SlideshowPage> with SingleTicker
               ),
             ),
           ),
-          /*
           if (_crossfadeFromIndex != null && _crossfadeToIndex != null)
             Positioned.fill(
               child: IgnorePointer(
@@ -454,7 +453,6 @@ class _SlideshowPageState extends ConsumerState<SlideshowPage> with SingleTicker
                 ),
               ),
             ),
-          */
         ],
       ),
     );
