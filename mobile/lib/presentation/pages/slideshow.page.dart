@@ -36,7 +36,7 @@ class SlideshowPage extends ConsumerStatefulWidget {
 }
 
 class _SlideshowPageState extends ConsumerState<SlideshowPage> with SingleTickerProviderStateMixin {
-  static const double _kenBurnsZoom = 0.1;
+  static const double _kenBurnsZoom = 0.0;
 
   late SlideshowConfig _config;
   late final PageController _pageController;
@@ -434,6 +434,7 @@ class _SlideshowPageState extends ConsumerState<SlideshowPage> with SingleTicker
               ),
             ),
           ),
+          /*
           if (_crossfadeFromIndex != null && _crossfadeToIndex != null)
             Positioned.fill(
               child: IgnorePointer(
@@ -453,6 +454,7 @@ class _SlideshowPageState extends ConsumerState<SlideshowPage> with SingleTicker
                 ),
               ),
             ),
+          */
         ],
       ),
     );

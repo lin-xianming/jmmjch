@@ -17,6 +17,7 @@
     showOwner?: boolean;
     showDateRange?: boolean;
     showItemCount?: boolean;
+    previousRoute?: string | undefined;
     onShowContextMenu?: ((position: ContextMenuPosition, album: AlbumResponseDto) => unknown) | undefined;
   }
 
@@ -26,6 +27,7 @@
     showOwner = false,
     showDateRange = false,
     showItemCount = false,
+    previousRoute = undefined,
     onShowContextMenu = undefined,
   }: Props = $props();
 
@@ -61,10 +63,10 @@
 
 <div class="mt-4">
   {#if !isCollapsed}
-    <div class="grid grid-auto-fill-56 gap-y-4" transition:slide={{ duration: 300 }}>
+    <div class="grid grid-auto-fill-56 gap-y-0" transition:slide={{ duration: 300 }}>
       {#each albums as album, index (album.id)}
         <a
-          href={Route.viewAlbum(album)}
+          href={Route.viewAlbum(album) + (previousRoute ? `?previousRoute=${encodeURIComponent(previousRoute)}` : '')}
           class="h-fit"
           animate:flip={{ duration: 400 }}
           oncontextmenu={(event) => oncontextmenu(event, album)}

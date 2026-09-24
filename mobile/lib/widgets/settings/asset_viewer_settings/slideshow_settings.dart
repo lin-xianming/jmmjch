@@ -48,9 +48,9 @@ class SlideshowSettings extends HookConsumerWidget {
         SettingsSliderListTile(
           valueNotifier: useDuration,
           text: context.t.duration,
-          minValue: 5,
-          noDivisons: 5,
-          maxValue: 30,
+          minValue: 1,
+          noDivisons: 9,
+          maxValue: 10,
         ),
         Padding(
           padding: const EdgeInsets.only(top: 20),

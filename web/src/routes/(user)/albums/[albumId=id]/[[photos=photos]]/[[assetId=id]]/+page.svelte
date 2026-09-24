@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto, invalidate, onNavigate } from '$app/navigation';
-  import { navigating } from '$app/state';
+  import { navigating, page } from '$app/state';
   import { scrollMemoryClearer } from '$lib/actions/scroll-memory';
   import AlbumMap from '$lib/components/album-page/AlbumMap.svelte';
   import AlbumSummary from '$lib/components/album-page/AlbumSummary.svelte';
@@ -90,6 +90,7 @@
   let viewMode: AlbumPageViewMode = $state(AlbumPageViewMode.VIEW);
   let timelineManager = $state<TimelineManager>() as TimelineManager;
   let showAlbumUsers = $derived(timelineManager?.showAssetOwners ?? false);
+  let previousRoute = $derived(page.url.searchParams.get('previousRoute') ?? Route.albums());
 
   const timelineMultiSelectManager = new AssetMultiSelectManager();
 
@@ -130,7 +131,7 @@
       assetMultiSelectManager.clear();
       return;
     }
-    await goto(Route.albums());
+    await goto(previousRoute);
   };
 
   const refreshAlbum = async () => {
@@ -281,7 +282,7 @@
       return;
     }
 
-    await goto(Route.albums());
+    await goto(previousRoute);
     viewMode = AlbumPageViewMode.VIEW;
   };
 
@@ -507,7 +508,7 @@
       </AssetSelectControlBar>
     {:else}
       {#if viewMode === AlbumPageViewMode.VIEW}
-        <ControlAppBar backIcon={mdiArrowLeft} onClose={() => goto(Route.albums())}>
+        <ControlAppBar backIcon={mdiArrowLeft} onClose={() => goto(previousRoute)}>
           {#snippet trailing()}
             <ActionButton action={Cast} />
 

@@ -34,7 +34,7 @@
 </script>
 
 <div
-  class="group relative rounded-2xl border border-transparent p-5 hover:border-gray-200 hover:bg-gray-100 dark:hover:border-gray-800 dark:hover:bg-gray-900"
+  class="group relative rounded-2xl border border-transparent p-2 hover:border-gray-200 hover:bg-gray-100 dark:hover:border-gray-800 dark:hover:bg-gray-900"
   data-testid="album-card"
 >
   {#if onShowContextMenu}
@@ -58,9 +58,9 @@
 
   <AlbumCover {album} {preload} class="transition-all duration-300 hover:shadow-lg" />
 
-  <div class="mt-4">
+  <div class="mt-2">
     <p
-      class="line-clamp-2 w-full text-lg/6 font-semibold wrap-break-word text-black group-hover:text-primary dark:text-white"
+      class="line-clamp-2 w-full text-sm/6 font-semibold wrap-break-word text-black group-hover:text-primary dark:text-white"
       data-testid="album-name"
       title={album.albumName}
     >

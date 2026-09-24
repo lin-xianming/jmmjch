@@ -22,6 +22,7 @@
   }: Props = $props();
 
   let inputRef = $state<HTMLElement>();
+  let isComposing = $state(false);
 
   const resetSearch = () => {
     name = '';
@@ -33,6 +34,21 @@
     if (event.key === 'Enter') {
       onSearch({ force: true });
     }
+  };
+
+  const handleInput = () => {
+    if (!isComposing) {
+      onSearch({ force: false });
+    }
+  };
+
+  const handleCompositionStart = () => {
+    isComposing = true;
+  };
+
+  const handleCompositionEnd = () => {
+    isComposing = false;
+    onSearch({ force: false });
   };
 </script>
 
@@ -57,7 +73,9 @@
     bind:value={name}
     bind:this={inputRef}
     onkeydown={handleSearch}
-    oninput={() => onSearch({ force: false })}
+    oninput={handleInput}
+    oncompositionstart={handleCompositionStart}
+    oncompositionend={handleCompositionEnd}
   />
   {#if showLoadingSpinner}
     <div class="flex place-items-center">

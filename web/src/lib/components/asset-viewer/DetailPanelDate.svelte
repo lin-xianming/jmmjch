@@ -59,6 +59,7 @@
                 hour: 'numeric',
                 minute: '2-digit',
                 second: '2-digit',
+                fractionalSecondDigits: 3,
                 timeZoneName: timeZone ? 'longOffset' : undefined,
               },
               { locale: $locale },
